@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style/styles.css">
+  <script src="jquery.js" charset="utf-8"></script>
+
+
+  <script type="text/javascript">
+    let slideIndex = 1;
+      showSlides (slideIndex)
+    function pluseSlides(n) {
+      showSlides(slideIndex += n)
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n)
+    }
+
+    function showSlides(n) {
+      var i;
+      let slides = document.getElementsByClassName("my-slider")
+      let dots = document.getElementsByClassName("dot")
+
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+      if(n < 1) {
+        slideIndex = slides.length
+      }
+      for ( i = 0; i < slides.length; i++) {
+        slides[i] .style .display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace("active","");
+      }
+      slides[slideIndex-1] .style .display = "block"
+      dots[slideIndex-1] .className += " active";
+    }
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="my-slider">
+      <div class="number">1/3</div>
+      <img src="img/green.jpeg" alt="">
+      <div class="text"></div>
+    </div>
+
+    <div class="my-slider">
+      <div class="number">2/3</div>
+      <img src="img/pink.jpeg" alt="">
+      <div class="text"></div>
+    </div>
+
+    <div class="my-slider">
+      <div class="number">3/3</div>
+      <img src="img/purple.jpeg" alt="">
+      <div class="text"></div>
+    </div>
+    <a  class="prev" onclick="pluseSlides(-1)">&#10094</a>
+    <a  class="next" onclick="pluseSlides(1)">&#10095</a>
+  </div>
+  <br>
+
+  <div style="text-align: center;">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+
+</body>
+</html>
